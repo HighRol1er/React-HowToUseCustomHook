@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+/** 
+ * 커스텀 훅을 쓰는 이유를 알아보자
+ *  todolist 만들기로 usecase 알아가기 
+ * **/
+
+import TodoList from "./components/TodoList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TodoList />
     </div>
   );
 }
