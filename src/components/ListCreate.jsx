@@ -1,14 +1,29 @@
 import { useInputTodo } from "../hooks/useInputTodo";
+import TodoItems from "./TodoItems";
+
 
 export default function ListCreate() {
-  const { inputText, setInputText, createItem } = useInputTodo();
+  const { inputText, setInputText, createItem, todoArray, deleteItem } = useInputTodo();
+  
+  // Enter로 todo item 입력 
+  const handleKeyDown = (e) => {
+    if(e.key === "Enter") {
+      createItem();
+    }
+  }
+
   return(
     <div>
-      <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)}/>
-
+      <input 
+        type="text" 
+        value={inputText} 
+        onChange={(e) => setInputText(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
       <button onClick={createItem}> 
-        Add {/** 왜 어떤건 onClick에 화살표함수로 써야하고 어떤건 그냥 함수 이름만 갖다가 붙히면 되는거지?  */}
+        Add
       </button>
+      <TodoItems todoArray={todoArray} deleteItem={deleteItem}/>
     </div>
   );
 }
